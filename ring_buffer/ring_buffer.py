@@ -25,10 +25,13 @@ class RingBuffer:
     def get(self):
         # Note:  This is the only [] allowed
         list_buffer_contents = []
+        # declare the current dll tail
         tail = self.storage.tail 
-
+        # loop while tail is not None
         while tail:
+            # add the tail value to the list
             list_buffer_contents.append(tail.value)
+            # set the new tail to the node before the tail
             tail = tail.prev
 
         # TODO: Your code here        
